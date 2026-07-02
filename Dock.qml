@@ -3,14 +3,19 @@ import Quickshell
 import Quickshell.Services.Pipewire
 import Quickshell.Wayland
 import qs.components.dock.main
-import qs.modules.bar
+import qs.modules.common
+import qs.components.dock.sound
 
 PanelWindow {
     id: root
 
     readonly property int xpadding_dock: 20
     readonly property int ypadding_dock: 15
-    property bool showVolume: false
+    readonly property var width_mode: {
+        "audio": 325
+    }
+
+    property string mode: "dock"
 
     screen: Quickshell.screens[0]
     implicitHeight: 73
@@ -22,6 +27,7 @@ PanelWindow {
     }
 
     property real systemVolume: Pipewire.defaultAudioSink?.audio.volume ?? 0.0
+    property bool systemVolumeMuted: Pipewire.defaultAudioSink?.audio.muted ?? true
 
     anchors {
         bottom: true
@@ -31,14 +37,14 @@ PanelWindow {
 
     Timer {
         id: volumeTimer
-        interval: 700
+        interval: 1000
         onTriggered: {
-            root.showVolume = false
+            root.mode = "dock"
         }
     }
 
     onSystemVolumeChanged: {
-        root.showVolume = true
+        root.mode = "audio"
         volumeTimer.restart()
     }
 
@@ -47,8 +53,8 @@ PanelWindow {
         color: '#21000000'
         radius: 10
         width: {
-            if (showVolume)
-                return 325;
+            if (mode != "dock")
+                return width_mode[mode];
 
             return dock.width + root.xpadding_dock;
         }
@@ -68,60 +74,17 @@ PanelWindow {
         DockContent {
             id: dock
 
-            visible: !showVolume
-            opacity: !showVolume ? 1 : 0
-
-
-            Behavior on opacity {
-                NumberAnimation {
-                    duration: 400
-                    easing.type: Easing.InOutQuad
-                }
-            }
+            visible: mode == "dock"
+            opacity: mode == "dock" ? 1 : 0
         }
 
-        Item {
-            visible: showVolume
-            height: parent.height
-            width: parent.width
-            opacity: !showVolume ? 0 : 1
 
+        SoundContent{
+            visible: (mode == "audio")
+            opacity: (mode == "audio") ? 1 : 0
 
-            Behavior on opacity {
-                NumberAnimation {
-                    duration: 400
-                    easing.type: Easing.InOutQuad
-                }
-            }
-
-            Row {
-                spacing: 22
-                anchors.centerIn: parent
-
-                ShellText {
-                    text: "󰕾"
-                    font.pixelSize: 22
-                    color: '#E9DEF8'
-                }
-
-                Rectangle {
-                    anchors.verticalCenter: parent.verticalCenter
-                    radius: 5
-                    height: 5
-                    width: 200
-                    color: "#4E3D75"
-
-                    Rectangle {
-                        height: parent.height
-                        width: systemVolume * parent.width
-                        radius: 5
-                        color: "#E9DEF8"
-                    }
-
-                }
-
-            }
-
+            volume: systemVolume
+            muted: systemVolumeMuted
         }
 
         border {

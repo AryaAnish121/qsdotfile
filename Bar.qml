@@ -2,7 +2,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Hyprland
 import qs.components.bar
-import qs.modules.bar
+import qs.modules.common
 
 Scope {
     id: root

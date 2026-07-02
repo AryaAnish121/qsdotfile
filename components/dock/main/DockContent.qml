@@ -49,4 +49,12 @@ Row {
         dockItems: Applist.pinnedAppsFiltered.length + Applist.unPinnedAppsFiltered
     }
 
+    Behavior on opacity {
+        NumberAnimation {
+            duration: 400
+            easing.type: Easing.InOutQuad
+        }
+
+    }
+
 }
