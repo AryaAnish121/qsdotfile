@@ -21,7 +21,15 @@ Row {
             Image {
                 anchors.fill: parent
                 fillMode: Image.PreserveAspectCrop
-                source: MprisPlayers.activePlayer ? MprisPlayers.activePlayer.trackArtUrl : Quickshell.shellPath("assets/no_music.svg")
+                source: {
+                    if (MprisPlayers.activePlayer) {
+                        if (MprisPlayers.activePlayer.trackArtUrl.length != 0)
+                            return MprisPlayers.activePlayer.trackArtUrl;
+
+                        return Quickshell.shellPath("assets/no_music.svg");
+                    }
+                    return Quickshell.shellPath("assets/no_music.svg");
+                }
             }
 
         }

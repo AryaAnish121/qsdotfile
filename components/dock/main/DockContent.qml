@@ -9,7 +9,7 @@ Row {
 
     Row {
         height: parent.height
-        spacing: 8
+        spacing: 5
 
         Repeater {
             model: Applist.pinnedAppsFiltered
@@ -28,7 +28,7 @@ Row {
 
     Row {
         height: parent.height
-        spacing: 8
+        spacing: 5
 
         Repeater {
             model: Applist.unPinnedAppsFiltered
