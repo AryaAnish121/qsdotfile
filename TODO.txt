@@ -5,13 +5,14 @@ current todo:
 - todo installer: fonts, service, copy qs, wallpapers
 - chagne icon theme, and add generators for different color templates
 - add a dot to symbolize running - borked - looks ugly and would require additional work past gui improvments
+- prolly move shelltext to universal module
 
 
 -- maybe ideas --
 - music thingy - add pause/play maybe..?
 - make music image popout shadow or some shit
-- add context menu for dock items for like the unpin and pin thingy
-- find a better way to filter dulplicate in dock menu
+- add context menu for dock items for like the unpin and pin thingy - prolly not - not much to offer and too much work
+- find a better way to filter dulplicate in dock menu - watdatmean was i high when i wrote ts?
 
 -- icons changed (for the final user script)
 firefox, chrome, vesktop -> Vesktop, image viewer gnome (couldn't find that imma do it later), zathura - current looks good but look for alternatives
