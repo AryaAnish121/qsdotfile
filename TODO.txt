@@ -8,6 +8,9 @@ current todo:
 - add workspace switcher - borked - too frequent switches would make it look ugly + no direct way to listen except direct signal thing which might degrade performance...? idk just a guess cuz too amny events..?
 - listen for command click
 
+-- this time --
+shadows
+
 
 -- maybe ideas --
 - music thingy - add pause/play maybe..?
