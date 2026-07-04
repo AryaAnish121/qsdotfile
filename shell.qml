@@ -10,7 +10,10 @@ Scope {
     Dock {
         mode: dockMode
         onSwitchMode: (switchTo) => {
-            root.dockMode = root.dockMode == switchTo ? "dock" : switchTo;
+            if (switchTo != "audio")
+                root.dockMode = root.dockMode == switchTo ? "dock" : switchTo;
+            else
+                root.dockMode = "audio";
         }
         onCloseDockMain: () => {
             root.dockMode = "dock";
