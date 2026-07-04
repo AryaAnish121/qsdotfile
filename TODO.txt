@@ -8,11 +8,10 @@ NO WALLPAPER SWITCHER LADS! IDK HOW TO IMPLEMENT ONE. MAKING A NORMAL ONE WOULD 
 - hyprlock and others customization -> hyprland shadows hpyrlock
 - make things clickable lol -> music thingy status bar
 - matugen create themes for various thing gtk and shit - o man if only i built that god damn wallpaper switcher
-
+- WE DOIN DA WALLPAPER GNG; just need to think of the design first 🔁 "doing it but the last thing im going to do"
 
 -- for the future --
 - output source picker - high prior
-- wallpaper picker - mid prior
 - app list increase performance / refactor - absolute bare low deep minimum prior; who tf wants to revisit for a fucking refacotr
 
 -- things to add in the final installer --
