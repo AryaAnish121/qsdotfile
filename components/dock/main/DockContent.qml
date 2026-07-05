@@ -14,7 +14,7 @@ Row {
         spacing: 5
 
         Repeater {
-            model: Applist.pinnedAppsFiltered
+            model: Applist.apps.pinnedApps
 
             DockApp {
                 appData: modelData
@@ -25,7 +25,7 @@ Row {
     }
 
     Separator {
-        visible: Applist.pinnedAppsFiltered.length != 0
+        visible: Applist.apps.pinnedApps.length != 0
     }
 
     Row {
@@ -33,7 +33,7 @@ Row {
         spacing: 5
 
         Repeater {
-            model: Applist.unPinnedAppsFiltered
+            model: Applist.apps.unPinnedApps
 
             DockApp {
                 appData: modelData
@@ -44,11 +44,11 @@ Row {
     }
 
     Separator {
-        visible: Applist.unPinnedAppsFiltered.length != 0
+        visible: Applist.apps.unPinnedApps.length != 0
     }
 
     MusicPlayer {
-        dockItems: Applist.pinnedAppsFiltered.length + Applist.unPinnedAppsFiltered
+        dockItems: Applist.apps.pinnedApps.length + Applist.apps.unPinnedApps
     }
 
     Behavior on opacity {

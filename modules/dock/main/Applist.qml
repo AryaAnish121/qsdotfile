@@ -1,50 +1,56 @@
-pragma Singleton
-
 import Quickshell
 import Quickshell.Wayland
-
-// just checked - this is shit performance wise; to be rewritten
-
+pragma Singleton
 
 Singleton {
-    readonly property list<DesktopEntry> pinnedApps: {
-        const _cacheTrigger = DesktopEntries.applications.values;
-        return [
-            DesktopEntries.byId("firefox"), 
-            DesktopEntries.byId("code"),
-            DesktopEntries.byId("kitty")
-        ]
-    }
-    
+    readonly property list<string> pinnedApps: ["firefox", "code", "kitty"]
     readonly property list<Toplevel> runningApps: ToplevelManager.toplevels.values
-
-    readonly property var combinedApps: [
-        ...runningApps.map(item => {
-            const idApp = DesktopEntries.byId(item.appId)
-            if (idApp) return {entry: idApp, window: item, running: true, pinned: pinnedApps.includes(idApp)};
-            const nameApp = DesktopEntries.heuristicLookup(item.appId)
-            return {
-                entry: nameApp, window: item, running: true, pinned: pinnedApps.includes(nameApp)
-            };
-        }),
-        ...pinnedApps.map(item => {
-            return {entry: item, window: null, running: false, pinned: true}
-        }),
-    ];
-
-    readonly property var filteredApps: {
-        // idk performance dawg; first idea that came to mind
-        var added = []
-        const unqiueApps = combinedApps.filter(value => {
-            if (!added.includes(value.entry)) {
-                added.push(value.entry)
-                return true;
+    property var _entryCache: ({
+    })
+    readonly property var apps: {
+        const _waitForApps = DesktopEntries.applications.values; // hack to fix ghost apps; 
+        let seenApps = new Set();
+        let pinnedList = [];
+        let unPinnedList = [];
+        runningApps.forEach((item) => {
+            if (!seenApps.has(item.appId)) {
+                if (pinnedApps.includes(item.appId))
+                    pinnedList.push({
+                    "entry": getEntry(item.appId),
+                    "window": item,
+                    "running": true
+                });
+                else
+                    unPinnedList.push({
+                    "entry": getEntry(item.appId),
+                    "window": item,
+                    "running": true
+                });
+                seenApps.add(item.appId);
             }
-            return false;
-        })
-        return unqiueApps
+        });
+        pinnedApps.forEach((item) => {
+            if (!seenApps.has(item))
+                pinnedList.push({
+                "entry": getEntry(item),
+                "window": null,
+                "running": false
+            });
+
+        });
+        return {
+            "pinnedApps": pinnedList,
+            "unPinnedApps": unPinnedList
+        };
     }
 
-    readonly property var pinnedAppsFiltered: filteredApps.filter(value => value.pinned)
-    readonly property var unPinnedAppsFiltered: filteredApps.filter(value => !value.pinned)
+    function getEntry(appId) {
+        if (_entryCache[appId])
+            return _entryCache[appId];
+
+        const entry = DesktopEntries.byId(appId) ?? DesktopEntries.heuristicLookup(appId);
+        _entryCache[appId] = entry;
+        return entry;
+    }
+
 }
