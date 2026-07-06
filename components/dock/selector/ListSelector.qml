@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
+import qs.modules.common
 
 Row {
     id: contents
@@ -14,7 +15,11 @@ Row {
 
     signal dockClose()
     signal toggleDock()
-    signal selection(string command)
+
+    function selection(command) {
+        RunCommand.run(command);
+        dockClose();
+    }
 
     visible: (mode == selectorId)
     opacity: (mode == selectorId) ? 1 : 0

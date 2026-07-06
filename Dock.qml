@@ -7,6 +7,8 @@ import qs.components.dock.sound
 import qs.modules.dock.main
 
 PanelWindow {
+    // logout needs fix; not working for me for some reason
+
     id: root
 
     readonly property int xpadding_dock: 20
@@ -19,32 +21,32 @@ PanelWindow {
     }
     readonly property var powerMenuOptions: [{
         "icon": "",
-        "command": "lock"
+        "command": ["sh", "-c", "loginctl lock-session"]
     }, {
         "icon": "",
-        "command": "sleep"
+        "command": ["sh", "-c", "systemctl suspend"]
     }, {
         "icon": "",
-        "command": "logout"
+        "command": ["sh", "-c", "loginctl terminate-session self"]
     }, {
         "icon": "",
-        "command": "reboot"
+        "command": ["sh", "-c", "systemctl reboot"]
     }, {
         "icon": "",
-        "command": "shutdown"
+        "command": ["sh", "-c", "systemctl poweroff"]
     }]
     readonly property var screenshotOptions: [{
         "icon": "",
-        "command": "takeScreenshot"
+        "command": ["rishot"]
     }, {
         "icon": "",
-        "command": "getText"
+        "command": ["bash", Quickshell.shellPath("scripts/ocr.sh")]
     }, {
         "icon": "",
-        "command": "googleSearch"
+        "command": ["bash", Quickshell.shellPath("scripts/lens.sh")]
     }, {
         "icon": "",
-        "command": "colorPicker"
+        "command": ["bash", Quickshell.shellPath("scripts/picker.sh")]
     }]
     property string mode: "dock"
 
@@ -113,9 +115,6 @@ PanelWindow {
             onToggleDock: {
                 switchMode("powerMenu");
             }
-            onSelection: (command) => {
-                console.log(command);
-            }
         }
 
         ListSelector {
@@ -131,9 +130,6 @@ PanelWindow {
             }
             onToggleDock: {
                 switchMode("screenshot");
-            }
-            onSelection: (command) => {
-                console.log(command);
             }
         }
 

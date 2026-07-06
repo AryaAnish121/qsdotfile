@@ -7,6 +7,8 @@ import qs.modules.common
 Scope {
     id: root
 
+    signal openPowerMenu()
+
     Variants {
         model: Quickshell.screens
 
@@ -34,6 +36,15 @@ Scope {
 
                     ShellText {
                         text: "󰜡"
+
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: {
+                                openPowerMenu();
+                            }
+                        }
+
                     }
 
                     ShellText {

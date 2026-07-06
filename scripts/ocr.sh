@@ -1,0 +1,1 @@
+(grim -g "$(slurp)" - | tesseract - stdout --oem 1 --psm 6 | wl-copy) > /dev/null 2>&1 < /dev/null

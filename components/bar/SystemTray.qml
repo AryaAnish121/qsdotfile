@@ -33,10 +33,7 @@ Row {
                 cursorShape: (modelData.hasMenu) ? Qt.PointingHandCursor : Qt.ForbiddenCursor
                 acceptedButtons: Qt.LeftButton | Qt.RightButton
                 onClicked: function(mouse) {
-                    if (mouse.button === Qt.RightButton)
-                        trayMenuAnchor.open();
-                    else
-                        modelData.activate();
+                    trayMenuAnchor.open();
                 }
             }
 

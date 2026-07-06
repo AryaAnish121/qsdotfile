@@ -37,6 +37,11 @@ Row {
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
+            onClicked: {
+                if (MprisPlayers.activePlayer)
+                    MprisPlayers.activePlayer.togglePlaying();
+
+            }
         }
 
     }

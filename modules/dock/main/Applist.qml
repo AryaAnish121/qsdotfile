@@ -6,8 +6,6 @@ pragma Singleton
 Singleton {
     property var pinnedApps: adapter.pinnedApps
     readonly property list<Toplevel> runningApps: ToplevelManager.toplevels.values
-    property var _entryCache: ({
-    })
     readonly property var apps: {
         const _waitForApps = DesktopEntries.applications.values; // hack to fix ghost apps;
         let seenApps = new Set();
@@ -49,12 +47,7 @@ Singleton {
     }
 
     function getEntry(appId) {
-        if (_entryCache[appId])
-            return _entryCache[appId];
-
-        const entry = DesktopEntries.byId(appId) ?? DesktopEntries.heuristicLookup(appId);
-        _entryCache[appId] = entry;
-        return entry;
+        return DesktopEntries.byId(appId) ?? DesktopEntries.heuristicLookup(appId);
     }
 
     function pinApp(appId) {

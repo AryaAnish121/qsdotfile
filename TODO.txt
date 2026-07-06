@@ -1,16 +1,15 @@
 current todo:
 
 - wallpaper switcher cli
-- docked mode - todo now
+- docked mode - fuh naw not important; later
 - matugen integration
 - hyprlock and others customization -> hyprland shadows hpyrlock dunst
-- make things clickable lol -> music thingy status bar
+- make things clickable lol -> music thingy status bar - now
 - matugen create themes for various thing gtk and shit - o man if only i built that god damn wallpaper switcher
 - WE DOIN DA WALLPAPER GNG; just need to think of the design first 🔁 "doing it but the last thing im going to do"
 
 -- for the future --
 - output source picker - high prior
-- app list increase performance / refactor - absolute bare low deep minimum prior; who tf wants to revisit for a fucking refacotr
 
 -- things to add in the final installer --
 - fonts
@@ -24,6 +23,9 @@ current todo:
 -- maybe ideas (things on lower priority than the lowest priority in the above list) -- 
 - make music image popout shadow or some shit
 - add context menu for dock items for like the unpin and pin thingy - prolly not - not much to offer and too much work
+- add a widget when clock clicked
+- maybe just maybe bring add cache for applist.qml - removed cuz spotify is a bitch
+- different wallpaper for different monitors
 
 
 ----------------------------------------------------
