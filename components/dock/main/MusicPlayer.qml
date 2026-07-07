@@ -7,7 +7,7 @@ Row {
     property var dockItems
 
     height: parent.height
-    rightPadding: dockItems == 0 ? -1 : 1.5 // fix the ghost less padding; no idea what's causing this
+    rightPadding: dockItems == 0 ? -1 : 3 // fix the ghost less padding; no idea what's causing this
 
     Item {
         anchors.verticalCenter: parent.verticalCenter

@@ -1,6 +1,6 @@
 INPUT_DIR="$HOME/wallpapers/wallpapers"
 OUTPUT_DIR="$HOME/.krypton/thumbnails"
-THUMB_SIZE="400x400"
+THUMB_SIZE="x120"
 
 mkdir -p $OUTPUT_DIR
 

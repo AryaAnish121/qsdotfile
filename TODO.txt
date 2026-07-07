@@ -16,6 +16,8 @@ current todo:
 - wallpapers
 - icon theme and modifications
 - hyprland -> blur shortcuts gaps general look and feel i mean
+- find home folder dynamically wallpaper switcher folderlistmodel 
+- check if file exists wallpaper swticher script
 
 -- maybe ideas (things on lower priority than the lowest priority in the above list) -- 
 - make music image popout shadow or some shit
