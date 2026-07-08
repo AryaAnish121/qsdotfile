@@ -15,7 +15,7 @@ PanelWindow {
         search.searchBar.text = "";
         mainWindow.pickerActivated = false;
         const wallpaper = wallpaperFolderModel.get(currentPick, "fileName");
-        const wallpaperPath = `/home/arya/wallpapers/wallpapers/${wallpaper}`;
+        const wallpaperPath = `${Quickshell.env("HOME")}/wallpapers/wallpapers/${wallpaper}`;
         if (wallpaper)
             changeWallpaper(wallpaperPath);
 
@@ -60,7 +60,7 @@ PanelWindow {
 
         caseSensitive: false
         nameFilters: search.searchBar.text == "" ? ["*"] : ["*" + search.searchBar.text + "*"]
-        folder: "file:///home/arya/.krypton/thumbnails"
+        folder: `file://${Quickshell.env("HOME")}/.krypton/thumbnails`
     }
 
     Rectangle {
