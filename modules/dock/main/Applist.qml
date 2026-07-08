@@ -4,7 +4,7 @@ import Quickshell.Wayland
 pragma Singleton
 
 Singleton {
-    property var pinnedApps: adapter.pinnedApps
+    property var pinnedApps: jsonFile.adapter.pinnedApps
     readonly property list<Toplevel> runningApps: ToplevelManager.toplevels.values
     readonly property var apps: {
         const _waitForApps = DesktopEntries.applications.values; // hack to fix ghost apps;
@@ -55,9 +55,9 @@ Singleton {
             const newList = pinnedApps.filter((item) => {
                 return item !== appId;
             });
-            adapter.pinnedApps = newList;
+            jsonFile.adapter.pinnedApps = newList;
         } else {
-            adapter.pinnedApps.push(appId);
+            jsonFile.adapter.pinnedApps.push(appId);
         }
     }
 
@@ -68,9 +68,7 @@ Singleton {
         blockLoading: true
         onAdapterUpdated: jsonFile.writeAdapter()
 
-        JsonAdapter {
-            id: adapter
-
+        adapter: JsonAdapter {
             property list<string> pinnedApps
         }
 
