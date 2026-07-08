@@ -16,4 +16,4 @@ wallpaper {
 splash=false
 EOF
 
-matugen image --source-color-index 0 -m dark $1
+matugen image --source-color-index 0 -m dark "$1"
