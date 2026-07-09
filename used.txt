@@ -1,4 +1,0 @@
-dock
-background
-overbackground
-surfaceContainerLowest

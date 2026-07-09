@@ -1,10 +1,9 @@
 current todo:
 
 - docked mode - fuh naw not important; later
-- matugen integration w hyprland and shit and quickshell
+- matugen integration w hyprland and shit
 - hyprlock customization maybe
 - might add discord matugen integration
-- WE DOIN DA WALLPAPER GNG; just need to think of the design first 🔁 "doing it but the last thing im going to do"
 
 -- for the future --
 - output source picker - high prior

@@ -28,10 +28,9 @@ Rectangle {
         cellHeight: 120
         clip: true
 
-        delegate: Rectangle {
+        delegate: Item {
             height: view.cellHeight
             width: view.cellWidth
-            color: "transparent"
 
             Rectangle {
                 height: parent.height - 10
@@ -41,7 +40,7 @@ Rectangle {
                 radius: 6
 
                 border {
-                    width: (index == currentPick) ? 2 : 0
+                    width: (index == currentPick) ? 3 : 0
                     color: Colors.overPrimaryFixedVariant
                 }
 
