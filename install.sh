@@ -25,10 +25,6 @@ install_yay_stuff () {
     yay -S --needed --noconfirm apple_cursor ttf-phosphor-icons
 }
 
-install_spicetify () {
-    curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
-}
-
 install_wallpapers() {
     rm -rf ~/wallpapers/wallpapers
     git clone https://github.com/AryaAnish121/wallpapers.git ~/wallpapers/wallpapers
@@ -98,7 +94,6 @@ confirm_installation
 install_pacman_stuff
 install_yay_stuff
 install_icons
-install_spicetify
 install_vicinae
 install_matugen
 install_quickshell
