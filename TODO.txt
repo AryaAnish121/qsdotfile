@@ -7,15 +7,6 @@ current todo:
 -- for the future --
 - output source picker - high prior
 
--- things to add in the final installer --
-- fonts
-- gpu driver thingy
-- qs copy obv
-- wallpapers
-- icon theme and modifications
-- hyprland -> blur shortcuts gaps general look and feel i mean
-- check if file exists wallpaper swticher script
-
 -- maybe ideas (things on lower priority than the lowest priority in the above list) -- 
 - make music image popout shadow or some shit
 - add context menu for dock items for like the unpin and pin thingy - prolly not - not much to offer and too much work
@@ -23,7 +14,6 @@ current todo:
 - maybe just maybe bring add cache for applist.qml - removed cuz spotify is a bitch
 - different wallpaper for different monitors
 - might add discord matugen integration
-
 
 ----------------------------------------------------
 - add a dot to symbolize running - borked - looks ugly and would require additional work past gui improvments
