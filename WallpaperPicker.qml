@@ -37,11 +37,6 @@ PanelWindow {
         id: wallpaperChangeProcess
 
         running: false
-
-        stdout: StdioCollector {
-            onStreamFinished: console.log(`line read: ${this.text}`)
-        }
-
     }
 
     HyprlandFocusGrab {
