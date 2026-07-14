@@ -18,7 +18,7 @@ confirm_installation () {
 }
 
 install_pacman_stuff () {
-    sudo pacman --noconfirm --needed -S unzip fastfetch asciiquarium adw-gtk-theme matugen dunst xdg-desktop-portal-hyprland archlinux-xdg-menu zsh git quickshell hyprlock hypridle hyprpaper hyprsunset zathura zathura-pdf-mupdf imagemagick grim slurp wl-clipboard hyprpicker inotify-tools libnotify tesseract tesseract-data-eng tesseract-data-hin jq ttf-jetbrains-mono-nerd gnome-clocks gnome-calculator baobab base-devel
+    sudo pacman --noconfirm --needed -S unzip fastfetch asciiquarium adw-gtk-theme matugen dunst xdg-desktop-portal-hyprland archlinux-xdg-menu zsh git quickshell hyprlock hypridle hyprpaper hyprsunset zathura zathura-pdf-mupdf imagemagick grim slurp wl-clipboard hyprpicker inotify-tools libnotify tesseract tesseract-data-eng tesseract-data-hin jq ttf-jetbrains-mono-nerd gnome-clocks gnome-calculator baobab base-devel nautilus
 }
 
 install_yay_stuff () {
@@ -66,8 +66,7 @@ install_matugen () {
     rm -rf ~/.config/matugen
     git clone https://github.com/AryaAnish121/matugen.git ~/.config/matugen
 
-    sudo rm ~/.config/gtk-4.0/gtk.css
-    echo "@import 'colors.css';" > ~/.config/gtk-4.0/gtk.css
+    mkdir -p ~/.config/gtk-4.0/
 }
 
 install_hypr () {
@@ -94,6 +93,7 @@ install_kitty () {
 }
 
 post_install() {
+    echo -e "\033[1;31mRun sudo rm -f ~/.config/gtk-4.0/gtk.css after running nwg-look (GTK Settings) and setting adw-gtk as the theme\033[0m"
     echo -e "recommended to run: \e[1msudo pacman -S intel-media-driver opencl-mesa\e[0m for intel gpus; later may or may not be as useful (mainly for davinci resolve)"
     echo -e "apps to quickstart: \e[1myay -S visual-studio-code-bin google-chrome vesktop\e[0m; \e[1msudo pacman -S obs-studio spotify-launcher\e[0m; and apps like spicetify"
     echo "you still have to configure the default file manager and shit in default hyprland config"
@@ -102,17 +102,17 @@ post_install() {
     echo -e "recommended to install all colors themes in matugen config using the guide: https://github.com/InioX/matugen-themes"
 }
 
-confirm_installation
-install_pacman_stuff
-install_yay_stuff
-install_icons
-install_vicinae
-install_matugen
-install_kitty
-install_quickshell
-install_wallpapers
-install_hyprselect
-install_hypr
-install_fastfetch
-install_emojis
+# confirm_installation
+# install_pacman_stuff
+# install_yay_stuff
+# install_icons
+# install_vicinae
+# install_matugen
+# install_kitty
+# install_quickshell
+# install_wallpapers
+# install_hyprselect
+# install_hypr
+# install_fastfetch
+# install_emojis
 post_install
